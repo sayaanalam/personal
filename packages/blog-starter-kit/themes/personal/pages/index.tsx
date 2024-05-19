@@ -54,6 +54,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 		setPageInfo(data.publication.posts.pageInfo);
 		setLoadedMore(true);
 	};
+
 	return (
 		<AppProvider publication={publication}>
 			<Layout>
@@ -83,20 +84,52 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						}}
 					/>
 				</Head>
-				<Container className="mx-auto flex max-w-3xl flex-col items-stretch gap-10 px-5 py-10">
-					<PersonalHeader />
-					{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
-					{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-						<button className="bg-white" onClick={loadMore}>
-							Load more
-						</button>
-					)}
-					{loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-						<Waypoint onEnter={loadMore} bottomOffset={'10%'} />
-					)}
-
-					<Footer />
-				</Container>
+				<div className="min-h-screen bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+					<header className="bg-white dark:bg-gray-800 shadow-sm">
+						<div className="container mx-auto px-4 py-6 flex justify-between items-center">
+							<h1 className="text-3xl font-bold">Sandeep Dev</h1>
+							<nav>
+								<ul className="flex space-x-4">
+									<li>
+										<a href="/" className="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400">Home</a>
+									</li>
+									<li>
+										<a href="/blog" className="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400">Blog</a>
+									</li>
+									<li>
+										<a href="/projects" className="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400">Projects</a>
+									</li>
+									<li>
+										<a href="/about" className="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400">About</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</header>
+					<main className="container mx-auto px-4 py-12">
+						<section className="text-center">
+							<h2 className="text-4xl font-semibold mb-6">Welcome to My Blog</h2>
+							<p className="text-lg mb-8">I share my thoughts, projects, and more. Stay tuned for updates!</p>
+						</section>
+						<section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+							{/* Render posts here */}
+							{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
+						</section>
+						{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
+							<button className="bg-white mt-8 px-4 py-2 rounded shadow-md" onClick={loadMore}>
+								Load more
+							</button>
+						)}
+						{loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
+							<Waypoint onEnter={loadMore} bottomOffset={'10%'} />
+						)}
+					</main>
+					<footer className="bg-white dark:bg-gray-800 shadow-sm mt-12">
+						<div className="container mx-auto px-4 py-6 text-center">
+							<p className="text-gray-600 dark:text-gray-400">&copy; 2024 Sandeep Dev</p>
+						</div>
+					</footer>
+				</div>
 			</Layout>
 		</AppProvider>
 	);
