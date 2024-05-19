@@ -61,6 +61,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 			<Layout>
 				<Head>
 					<title>{publication.title}</title>
+          <header class="py-5 max-w-3xl mx-auto sticky top-0 z-50 flex flex-row justify-center"><div class="rounded-full flex flex-row justify-start md:justify-center shadow-lg backdrop-blur-sm border border-slate-950/5 dark:bg-slate-50/10 overflow-auto"><nav class="flex flex-row text-sm font-medium p-2 gap-2 sm:gap-5"><a class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-50/10 text-slate-950 dark:text-slate-50 flex flex-row gap-2 items-center rounded-full bg-slate-100 dark:bg-slate-50/10" href="/">Home</a><a class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-50/10 text-slate-600 dark:text-slate-400 flex flex-row gap-2 items-center rounded-full" href="/blog">Blog</a><a class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-50/10 text-slate-600 dark:text-slate-400 flex flex-row gap-2 items-center rounded-full" target="_Blank" rel="noopener" href="https://hashnode.com?source=sandeep.dev"><span>Hashnode</span><svg fill="none" class="w-4 h-4 stroke-current" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h6m4 0h5m0 0v5m0-5-8 8"></path></svg></a></nav></div></header>
 					<meta
 						name="description"
 						content={
