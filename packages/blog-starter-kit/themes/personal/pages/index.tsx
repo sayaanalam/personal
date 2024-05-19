@@ -59,6 +59,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 		<AppProvider publication={publication}>
 			<Layout>
 				<Head>
+          <h1>Sayaan Test</h1>
 					<title>{publication.title}</title>
 					<meta
 						name="description"
