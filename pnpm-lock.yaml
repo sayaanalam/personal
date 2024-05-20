@@ -36,6 +36,11 @@ importers:
       prettier-plugin-organize-imports:
         specifier: ^3.2.3
         version: 3.2.3(prettier@3.0.3)(typescript@5.2.2)
+      '@headlessui/react':
+    resolution:
+      integrity: sha512-...
+      tarball: https://registry.npmjs.org/@headlessui/react/-/headlessui-react-1.4.2.tgz
+    version: 1.4.2
       prettier-plugin-packagejson:
         specifier: ^2.4.6
         version: 2.4.6(prettier@3.0.3)
