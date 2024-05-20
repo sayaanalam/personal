@@ -1,6 +1,6 @@
 // pages/_app.tsx
 
-import '../styles/globals.css'
+import '../styles/index.css'
 import { AppProps } from 'next/app'
 import NavBar from '../components/NavBar'
 
