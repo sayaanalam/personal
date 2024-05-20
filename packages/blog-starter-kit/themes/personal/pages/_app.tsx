@@ -2,7 +2,7 @@
 
 import '../styles/index.css'
 import { AppProps } from 'next/app'
-import NavBar from '../components/NavBar'
+import { DesktopNavigation, MobileNavigation } from '../components/NavBar';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
