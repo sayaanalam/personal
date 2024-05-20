@@ -1,69 +1,102 @@
-/** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors');
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	content: ['./components/**/*.tsx', './pages/**/*.tsx'],
-	darkMode: 'class',
-	theme: {
-		extend: {
-			colors: {
-				'accent-1': '#FAFAFA',
-				'accent-2': '#EAEAEA',
-				'accent-7': '#333',
-				success: '#0070f3',
-				cyan: '#79FFE1',
-				primary: colors.blue,
-			},
-			typography: () => ({
-				DEFAULT: {
-				  css: {
-					'div[data-node-type="callout"]': {
-					  display: 'flex',
-					  'justify-content': 'flex-start',
-					  'align-items': 'flex-start',
-					  'background-color': '#F8FAFC',
-					  border: '1px solid #E2E8F0',
-					  padding: ' 1rem 1.5rem',
-					  gap: '0.5rem',
-					  'border-radius': '0.5rem',
-					  margin: '1rem 0',
-					  'word-break': 'break-word',
-					},
-					'div[data-node-type="callout-emoji"]': {
-					  background: '#E2E8F0',
-					  'border-radius': '0.5rem',
-					  minWidth: '1.75rem',
-					  width: '1.75rem',
-					  height: '1.5rem',
-					  display: 'flex',
-					  'margin-top': '0.3rem',
-					  'justify-content': 'center',
-					  'align-items': 'center',
-					  'font-size': '1rem',
-					}
-				  },
-				}
-			}),
-			spacing: {
-				28: '7rem',
-			},
-			letterSpacing: {
-				tighter: '-.04em',
-			},
-			lineHeight: {
-				tight: 1.2,
-			},
-			fontSize: {
-				'5xl': '2.5rem',
-				'6xl': '2.75rem',
-				'7xl': '4.5rem',
-				'8xl': '6.25rem',
-			},
-			boxShadow: {
-				sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
-				md: '0 8px 30px rgba(0, 0, 0, 0.12)',
-			},
-		},
-	},
-	plugins: [require('@tailwindcss/typography')],
+  purge: ['./src/**/*.{tsx,jsx,ts,js}'],
+  plugins: [require('@tailwindcss/typography')],
+  variants: {
+    typography: ['dark'],
+  },
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+      },
+      fontSize: {
+        xs: ['0.8125rem', { lineHeight: '1.5rem' }],
+        sm: ['0.875rem', { lineHeight: '1.5rem' }],
+        base: ['1rem', { lineHeight: '1.75rem' }],
+        lg: ['1.125rem', { lineHeight: '1.75rem' }],
+        xl: ['1.25rem', { lineHeight: '2rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.5rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '3.5rem' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
+      },
+      colors: {
+        primary: '#FB2576',
+        'primary-light': '#fd92ba',
+        'primary-dark': '#8d0237',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.700'),
+              },
+              code: { color: theme('colors.blue.400') },
+            },
+            'h2,h3,h4': {
+              'scroll-margin-top': spacing[32],
+            },
+            thead: {
+              borderBottomColor: theme('colors.gray.200'),
+            },
+            code: { color: theme('colors.pink.500') },
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.200'),
+            a: {
+              color: theme('colors.blue.400'),
+              '&:hover': {
+                color: theme('colors.blue.600'),
+              },
+              code: { color: theme('colors.blue.400') },
+            },
+            blockquote: {
+              borderLeftColor: theme('colors.gray.700'),
+              color: theme('colors.gray.300'),
+            },
+            'h2,h3,h4': {
+              color: theme('colors.gray.100'),
+              'scroll-margin-top': spacing[32],
+            },
+            hr: { borderColor: theme('colors.gray.700') },
+            ol: {
+              li: {
+                '&:before': { color: theme('colors.gray.500') },
+              },
+            },
+            ul: {
+              li: {
+                '&:before': { backgroundColor: theme('colors.gray.500') },
+              },
+            },
+            strong: { color: theme('colors.gray.100') },
+            thead: {
+              color: theme('colors.gray.100'),
+              borderBottomColor: theme('colors.gray.600'),
+            },
+            tbody: {
+              tr: {
+                borderBottomColor: theme('colors.gray.700'),
+              },
+            },
+          },
+        },
+      }),
+    },
+  },
 };
