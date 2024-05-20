@@ -73,34 +73,33 @@ const MobileNavItem = ({ href, children }: React.PropsWithChildren<{ href: strin
   );
 };
 
-const DesktopNavigation = () => {
+export const DesktopNavigation = (
+  props: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>,
+) => {
   return (
-    <nav className="flex justify-center">
-      <div className="max-w-4xl w-full px-1"> {/* Adjust the max-width to your desired width */}
-        <ul className="flex rounded-full bg-white/90 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-          {NavigationItems.map((item) => {
-            if (item.type === 'internal') {
-              return (
-                <NavItem key={item.href} href={item.href}>
-                  {item.name}
-                </NavItem>
-              );
-            }
-
+    <nav {...props}>
+      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+        {NavigationItems.map((item) => {
+          if (item.type === 'internal') {
             return (
-              <a
-                key={item.href}
-                className="transition hover:text-primary px-3 py-2"
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <NavItem key={item.href} href={item.href}>
                 {item.name}
-              </a>
+              </NavItem>
             );
-          })}
-        </ul>
-      </div>
+          }
+
+          return (
+            <a
+              key={item.href}
+              className="transition hover:text-primary px-3 py-2"
+              href={item.href}
+              target="_blank"
+            >
+              {item.name}
+            </a>
+          );
+        })}
+      </ul>
     </nav>
   );
 };
