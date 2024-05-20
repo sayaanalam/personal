@@ -1,6 +1,16 @@
-import { AppProps } from 'next/app';
-import '../styles/index.css';
+// pages/_app.tsx
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />;
+import '../styles/globals.css'
+import { AppProps } from 'next/app'
+import NavBar from '../components/NavBar'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <NavBar />
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default MyApp;
