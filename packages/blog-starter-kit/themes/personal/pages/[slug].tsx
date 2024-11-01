@@ -7,6 +7,7 @@ import { useEmbeds } from '@starter-kit/utils/renderer/hooks/useEmbeds';
 import { loadIframeResizer } from '@starter-kit/utils/renderer/services/embed';
 import request from 'graphql-request';
 import { GetStaticProps } from 'next';
+import SubscriptionWidget from '../components/SubscriptionWidget';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
