@@ -142,6 +142,8 @@ const Post = ({ publication, post }: PostProps) => {
 				</div>
 			)}
 			<MarkdownToHtml contentMarkdown={post.content.markdown} />
+      <h1 className="text-2xl dark:text-white leading-none tracking-tight text-center mx-auto">Subscribe to my newsletter!</h1>
+      <SubscriptionWidget />
 			{(post.tags ?? []).length > 0 && (
 				<div className="mx-auto w-full text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
 					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
