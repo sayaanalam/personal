@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-// Inline styles
-const styles = {
+// Inline styles with proper typing
+const styles: { [key: string]: React.CSSProperties } = {
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -105,7 +105,7 @@ const SubscriptionWidget: React.FC = () => {
             setEmail(''); // Clear the email input
             setFadeOut(false); // Reset fade state for future use
           }, 350); // Delay to allow fading out to complete
-        }, 1200); // Show thank you message for 3 seconds
+        }, 1100); // Show thank you message for 1.2 seconds
       } catch (error) {
         console.error('Subscription Error:', error);
       }
@@ -129,7 +129,7 @@ const SubscriptionWidget: React.FC = () => {
           <button
             style={{
               ...styles.button,
-              backgroundColor: subscribed ? '#000000' : '#2461FF',
+              backgroundColor: subscribed ? '#000000' : '#4ABEBB',
               width: subscribed ? 'calc(100% - 2px)' : '100px',
             }}
             onClick={handleSubscribe}
