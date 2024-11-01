@@ -129,7 +129,7 @@ const SubscriptionWidget: React.FC = () => {
           <button
             style={{
               ...styles.button,
-              backgroundColor: subscribed ? '#000000' : '#4ABEBB',
+              backgroundColor: subscribed ? '#000000' : '#2461FF',
               width: subscribed ? 'calc(100% - 2px)' : '100px',
             }}
             onClick={handleSubscribe}
